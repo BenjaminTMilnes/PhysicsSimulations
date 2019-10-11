@@ -41,13 +41,25 @@ class App extends Application {
         this.resolutionFactor = 2;
 
         this.elements = [];
+    }
+
+    initialise() {
+        super.initialise();
+
+        this.graphics = new GraphicsContext(this.context);
+
+        this.height = 400 * this.resolutionFactor;
+
+        this.canvasHeight = 400;
+
+        this.context.scale(this.resolutionFactor, this.resolutionFactor);
 
         // Create three particles and add them to the list of elements.
         // The particle that isn't fixed is given a random position on the canvas.
 
-        this.elements.push(new Particle(v2(300, 300)));
-        this.elements.push(new Particle(v2(700, 300)));
-        this.elements.push(new Particle(v2(randomNumberWithinRange(200, 800), randomNumberWithinRange(100, 500))));
+        this.elements.push(new Particle(v2(this.width / 4 - 200, this.height / 4)));
+        this.elements.push(new Particle(v2(this.width / 4 + 200, this.height / 4)));
+        this.elements.push(new Particle(v2(randomNumberWithinRange(this.width / 4 - 300, this.width / 4 + 300), randomNumberWithinRange(this.height / 4 - 200, this.height / 4 + 200))));
 
         // Randomise the masses of the particles and the velocity of the particle that isn't fixed.
 
@@ -55,12 +67,6 @@ class App extends Application {
         this.elements[1].mass = randomNumberWithinRange(5, 20);
         this.elements[2].mass = randomNumberWithinRange(1, 10);
         this.elements[2].velocity = v2(randomNumberWithinRange(-0.1, 0.1), randomNumberWithinRange(-0.1, 0.1));
-    }
-
-    initialise() {
-        super.initialise();
-
-        this.graphics = new GraphicsContext(this.context);
     }
 
     update(timeDelta) {
