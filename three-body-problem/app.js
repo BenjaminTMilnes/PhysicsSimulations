@@ -38,12 +38,13 @@ class App extends Application {
 
         this.elements = [];
 
-        this.elements.push(new Particle(v2(300, 500)));
-        this.elements.push(new Particle(v2(700, 500)));
-        this.elements.push(new Particle(v2(400, 400)));
+        this.elements.push(new Particle(v2(300, 300)));
+        this.elements.push(new Particle(v2(700, 300)));
+        this.elements.push(new Particle(v2(randomNumberWithinRange(100, 900), randomNumberWithinRange(100, 900))));
 
         this.elements[0].mass = randomNumberWithinRange(5, 20);
         this.elements[1].mass = randomNumberWithinRange(5, 20);
+        this.elements[2].mass = randomNumberWithinRange(1, 10);
         this.elements[2].velocity = v2(randomNumberWithinRange(-0.1, 0.1), randomNumberWithinRange(-0.1, 0.1));
     }
 
