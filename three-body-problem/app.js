@@ -57,7 +57,7 @@ class App extends Application {
     update(timeDelta) {
         super.update(timeDelta);
 
-        var g = 1 / 1000;
+        var g = 1 / 10;
 
         for (var i = 0; i < this.elements.length; i++) {
             if (i < 2) {
@@ -74,8 +74,13 @@ class App extends Application {
                     var m2 = e2.mass;
                     var r = from(e1.position).to(e2.position).m;
                     var u = from(e1.position).to(e2.position).u;
+                    var fm = (g * m1 * m2) / (r * r);
 
-                    f = f.add(u.times((g * m1 * m2) / (r * r)));
+                    fm = Math.min(fm, 10);
+
+                    if (r > 2) {
+                        f = f.add(u.times(fm));
+                    }
                 }
             }
 
