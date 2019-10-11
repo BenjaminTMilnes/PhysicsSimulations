@@ -47,7 +47,7 @@ class App extends Application {
 
         this.elements.push(new Particle(v2(300, 300)));
         this.elements.push(new Particle(v2(700, 300)));
-        this.elements.push(new Particle(v2(randomNumberWithinRange(100, 900), randomNumberWithinRange(100, 900))));
+        this.elements.push(new Particle(v2(randomNumberWithinRange(200, 800), randomNumberWithinRange(100, 500))));
 
         // Randomise the masses of the particles and the velocity of the particle that isn't fixed.
 
