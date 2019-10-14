@@ -40,6 +40,9 @@ class App extends Application {
 
         this.resolutionFactor = 2;
 
+        this.canvasSizingHeight = "fixed";
+        this.fixedHeight = 400;
+
         this.elements = [];
     }
 
@@ -48,25 +51,27 @@ class App extends Application {
 
         this.graphics = new GraphicsContext(this.context);
 
-        this.height = 400 * this.resolutionFactor;
-
-        this.canvasHeight = 400;
-
-        this.context.scale(this.resolutionFactor, this.resolutionFactor);
+        var centre = v2(this.width / 4, this.height / 4);
 
         // Create three particles and add them to the list of elements.
-        // The particle that isn't fixed is given a random position on the canvas.
 
-        this.elements.push(new Particle(v2(this.width / 4 - 200, this.height / 4)));
-        this.elements.push(new Particle(v2(this.width / 4 + 200, this.height / 4)));
-        this.elements.push(new Particle(v2(randomNumberWithinRange(this.width / 4 - 300, this.width / 4 + 300), randomNumberWithinRange(this.height / 4 - 200, this.height / 4 + 200))));
+        var particle1 = new Particle();
+        var particle2 = new Particle();
+        var particle3 = new Particle();
 
-        // Randomise the masses of the particles and the velocity of the particle that isn't fixed.
+        particle1.mass = randomNumberWithinRange(5, 20);
+        particle1.position = centre.add(v2(-200, 0));
 
-        this.elements[0].mass = randomNumberWithinRange(5, 20);
-        this.elements[1].mass = randomNumberWithinRange(5, 20);
-        this.elements[2].mass = randomNumberWithinRange(1, 10);
-        this.elements[2].velocity = v2(randomNumberWithinRange(-0.1, 0.1), randomNumberWithinRange(-0.1, 0.1));
+        particle2.mass = randomNumberWithinRange(5, 20);
+        particle2.position = centre.add(v2(200, 0));
+
+        particle3.mass = randomNumberWithinRange(1, 10);
+        particle3.position = centre.add(v2(randomNumberWithinRange(- 300, 300), randomNumberWithinRange(- 200, 200)));
+        particle3.velocity = v2(randomNumberWithinRange(-0.1, 0.1), randomNumberWithinRange(-0.1, 0.1));
+
+        this.elements.push(particle1);
+        this.elements.push(particle2);
+        this.elements.push(particle3);
     }
 
     update(timeDelta) {
@@ -99,19 +104,8 @@ class App extends Application {
                     var u = from(e1.position).to(e2.position).u;
                     var fm = (g * m1 * m2) / (r * r);
 
-                    // fm is the magnitude of the gravitational force.
-                    // When two particles are close, this simulation can produce a problem where particles suddenly gain a huge amount of kinetic energy.
-                    // To mask this effect, place an upper limit on the magnitude of the force.
-                    // This will only come into effect when two particles are very close.
-
-                    fm = Math.min(fm, 10);
-
-                    // Similarly, place a lower limit on the range of the force.
-
-                    if (r > 2) {
-                        // Sum the forces due to gravity.
-                        f = f.add(u.times(fm));
-                    }
+                    // Sum the forces due to gravity.
+                    f = f.add(u.times(fm));
                 }
             }
 
