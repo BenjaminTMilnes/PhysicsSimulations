@@ -21,25 +21,25 @@
     <link href="../style.css" type="text/css" rel="stylesheet" />
 
     <script>
-        
 
-    fetch("app.js").then(response => {
-    });
+        function bodyOnLoad() {
+            fetch("app.js").then(response => {
+                document.getElementById("exampleCode").innerText = response.data;
+                hljs.initHighlightingOnLoad();
+            });
+        }
 
-    document.getElementById("exampleCode").innerText = "var x = 0;";
-        hljs.initHighlightingOnLoad();
-
-</script>
+    </script>
 
 </head>
 
-<body>
+<body onload="bodyOnLoad()">
     <h1>The Three-Body Problem</h1>
     <p class="abstract">The three-body problem considers three or more massive objects that interact gravitationally according to Newton's Law of Gravitation. The problem cannot be solved analytically, and must be solved by computation.</p>
     <canvas id="appCanvas" width="1000" height="1000"></canvas>
-<pre>
-    <code id="exampleCode">
-    </code>
+    <pre>
+        <code id="exampleCode">
+        </code>
 </pre>
 </body>
 
