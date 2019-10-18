@@ -1,8 +1,7 @@
 
-
 class Particle {
     constructor(position = zz) {
-        // Give the particle standard mechanical properties.
+        /* Give the particle standard mechanical properties. */
 
         this.mass = 10;
 
@@ -28,7 +27,7 @@ class Particle {
     }
 }
 
-// A function that returns a random number within a given range is always useful.
+/* A function that returns a random number within a given range is always useful. */
 
 function randomNumberWithinRange(lowerLimit, upperLimit) {
     return Math.random() * (upperLimit - lowerLimit) + lowerLimit;
@@ -41,7 +40,7 @@ class App extends Application {
         this.resolutionFactor = 2;
 
         this.canvasSizingHeight = "fixed";
-        this.fixedHeight = 400;
+        this.fixedHeight = 700;
 
         this.elements = [];
     }
@@ -53,7 +52,7 @@ class App extends Application {
 
         var centre = v2(this.width / 4, this.height / 4);
 
-        // Create three particles and add them to the list of elements.
+        /* Create three particles and add them to the list of elements. */
 
         var particle1 = new Particle();
         var particle2 = new Particle();
@@ -77,14 +76,14 @@ class App extends Application {
     update(timeDelta) {
         super.update(timeDelta);
 
-        // The force due to gravity on each particle is calculated here.
-        // g is a constant to tune the speed at which the simulation appears to run.
+        /* The force due to gravity on each particle is calculated here.
+           g is a constant to tune the speed at which the simulation appears to run. */
 
         var g = 1 / 10;
 
         for (var i = 0; i < this.elements.length; i++) {
 
-            // The first two particles are fixed, so no need to calculate the force on them.
+            /* The first two particles are fixed, so no need to calculate the force on them. */
             if (i < 2) {
                 continue;
             }
@@ -96,7 +95,7 @@ class App extends Application {
                 if (i != j) {
                     var e2 = this.elements[j];
 
-                    // Use Newton's Law of Gravitation to calculate the force on particle i due to particle j.
+                    /* Use Newton's Law of Gravitation to calculate the force on particle i due to particle j. */
 
                     var m1 = e1.mass;
                     var m2 = e2.mass;
@@ -104,7 +103,7 @@ class App extends Application {
                     var u = from(e1.position).to(e2.position).u;
                     var fm = (g * m1 * m2) / (r * r);
 
-                    // Sum the forces due to gravity.
+                    /* Sum the forces due to gravity. */
                     f = f.add(u.times(fm));
                 }
             }

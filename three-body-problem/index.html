@@ -6,8 +6,12 @@
 
     <title>The Three-Body Problem - Physics Simulations</title>
 
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/default.min.css">
+
     <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/default.min.css">
+    <link rel="stylesheet" href="../hemisu-light.css">
+
 
     <script type="text/javascript" src="http://www.physicsformulae.com/2dgraphicsjs/maths.js"></script>
     <script type="text/javascript" src="http://www.physicsformulae.com/2dgraphicsjs/graphics.js"></script>
@@ -24,8 +28,10 @@
 
         function bodyOnLoad() {
             fetch("app.js").then(response => {
-                document.getElementById("exampleCode").innerText = response.data;
-                hljs.initHighlightingOnLoad();
+                response.text().then(data => {
+                    document.getElementById("exampleCode").innerText = data.trim();
+                    hljs.highlightBlock(document.getElementById("exampleCodeBlock"));
+                });
             });
         }
 
@@ -34,13 +40,28 @@
 </head>
 
 <body onload="bodyOnLoad()">
-    <h1>The Three-Body Problem</h1>
-    <p class="abstract">The three-body problem considers three or more massive objects that interact gravitationally according to Newton's Law of Gravitation. The problem cannot be solved analytically, and must be solved by computation.</p>
+    <div class="centrecolumn">
+        <h1>The Three-Body Problem</h1>
+        <p class="abstract">
+            The three-body problem considers three or more massive objects that interact gravitationally
+            according to Newton's Law of Gravitation. The problem cannot be solved analytically, and must be solved by
+            computation.</p>
+    </div>
     <canvas id="appCanvas" width="1000" height="1000"></canvas>
-    <pre>
-        <code id="exampleCode">
+    <div class="centrecolumn">
+        <p>
+            In this simulation, two of the three objects are fixed, and the third one moves under gravity.
+            The initial position and velocity of the third object are randomised, as are the masses of all three objects.
+        </p>
+        <h2>The Code</h2>
+        <p>
+            The code used to run this simulation is shown below.
+        </p>
+        <pre id="exampleCodeBlock">
+        <code id="exampleCode" class="js">
         </code>
-</pre>
+        </pre>
+    </div>
 </body>
 
 </html>
