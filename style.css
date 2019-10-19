@@ -1,10 +1,10 @@
 body {
     margin: 0px;
-    padding: 50px 0px 500px 0px;
+    padding: 20px 20px 200px 20px;
     font-family: 'Open Sans', sans-serif;
     font-weight: lighter;
     color: #202020;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .centrecolumn {
@@ -16,25 +16,23 @@ h1, h2, h3, h4, h5, h6, p {
     font-family: inherit;
     font-weight: inherit;
     color: inherit;
+    text-align: center;
 }
 
 h1 {
     margin: 0.5em 0em;
-    font-size: 50px;
-    text-align: center;
+    font-size: 25px;
 }
 
 h2 {
     margin: 1.2em 0em;
-    font-size: 30px;
-    text-align: center;
+    font-size: 17px;
 }
 
 p {
-    font-size: 14px;
-    color: #707070;
     margin: 1.5em auto;
-    text-align: center;
+    font-size: 12px;
+    color: #707070;
     max-width: 700px;
 }
 
@@ -49,33 +47,88 @@ a:hover {
 
 .simulationlist {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    margin: 70px 0px;
+    margin: 20px 0px;
 }
 
 .simulation {
-    flex-basis: 25%;
+    box-sizing: border-box;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 2px;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.05);
-    padding: 30px;
+    padding: 20px;
 }
 
 .simulation img {
+    width: 100%;
     max-width: 300px;
+    margin: 0px auto;
+    display: block;
 }
 
 .simulation h3 {
-    font-size: 20px;
-    text-align: center;
     margin: 1.5em 0em;
+    font-size: 17px;
     font-weight: normal;
 }
 
 .simulation p {
-    font-size: 12px;
-    color: #707070;
     margin: 1.5em 0em;
-    text-align: center;
+    font-size: 12px;
+}
+
+@media (min-width: 400px) {
+    body {
+        padding: 30px 30px 300px 30px;
+    }
+    h1 {
+        font-size: 30px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    p {
+        font-size: 12px;
+    }
+    .simulationlist {
+        flex-direction: row;
+        margin: 50px 0px;
+    }
+    .simulation {
+        flex-basis: 50%;
+        padding: 30px;
+    }
+    .simulation h3 {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 700px) {
+    body {
+        padding: 50px 50px 500px 50px;
+        font-size: 14px;
+    }
+    h1 {
+        font-size: 50px;
+    }
+    h2 {
+        font-size: 30px;
+    }
+    p {
+        font-size: 14px;
+    }
+    .simulationlist {
+        margin: 70px 0px;
+    }
+    .simulation {
+        flex-basis: 33%;
+        padding: 30px;
+    }
+}
+
+@media (min-width: 1000px) {
+    body {
+        padding: 50px 0px 500px 0px;
+    }
 }

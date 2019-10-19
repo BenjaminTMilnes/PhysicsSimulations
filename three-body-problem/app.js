@@ -40,7 +40,7 @@ class App extends Application {
         this.resolutionFactor = 2;
 
         this.canvasSizingHeight = "fixed";
-        this.fixedHeight = 700;
+        this.fixedHeight = 400;
 
         this.elements = [];
     }
@@ -58,14 +58,16 @@ class App extends Application {
         var particle2 = new Particle();
         var particle3 = new Particle();
 
+        var w = Math.min(200, this.width / 8);
+
         particle1.mass = randomNumberWithinRange(5, 20);
-        particle1.position = centre.add(v2(-200, 0));
+        particle1.position = centre.add(v2(-w, 0));
 
         particle2.mass = randomNumberWithinRange(5, 20);
-        particle2.position = centre.add(v2(200, 0));
+        particle2.position = centre.add(v2(w, 0));
 
         particle3.mass = randomNumberWithinRange(1, 10);
-        particle3.position = centre.add(v2(randomNumberWithinRange(- 300, 300), randomNumberWithinRange(- 200, 200)));
+        particle3.position = centre.add(v2(randomNumberWithinRange(- w * 1.5, w * 1.5), randomNumberWithinRange(- w, w)));
         particle3.velocity = v2(randomNumberWithinRange(-0.1, 0.1), randomNumberWithinRange(-0.1, 0.1));
 
         this.elements.push(particle1);
