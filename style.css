@@ -39,3 +39,41 @@ p {
     color: #707070;
     margin: 1.5em 0em;
 }
+
+.simulationlist{
+       display:flex;
+         flex-direction: row;
+            flex-wrap: wrap;
+                 margin: 70px 0px;
+}
+
+.simulation{
+       flex-basis: 25%;
+
+            border: 1px solid rgba(0, 0, 0, 0.1);
+
+                        border-radius: 2px;
+                                box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.05);
+                                         padding: 30px;
+            }
+
+.simulation img{
+      max-width: 300px;
+
+}
+
+.simulation h3{
+    font-size: 20px;
+      text-align: center;
+    margin: 1.5em 0em;
+      font-weight: normal;
+
+}
+
+.simulation p{
+    font-size: 12px;
+    color: #707070;
+    margin: 1.5em 0em;
+    text-align: center;
+
+}
