@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>Single Pendulum - Physics Simulations</title>
+
+    <meta property="og:image" content="http://www.ultraphysics.co.uk/physics-simulations/single-pendulum/preview1.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.ultraphysics.co.uk/physics-simulations/single-pendulum/" />
+    <meta property="og:title" content="Single Pendulum - Physics Simulations" />
+    <meta property="og:description" content="" />
+
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/default.min.css">
+    <link rel="stylesheet" href="../hemisu-light.css">
+
+
+    <script type="text/javascript" src="http://www.physicsformulae.com/2dgraphicsjs/maths.js"></script>
+    <script type="text/javascript" src="http://www.physicsformulae.com/2dgraphicsjs/graphics.js"></script>
+    <script type="text/javascript" src="http://www.physicsformulae.com/2dgraphicsjs/collisions.js"></script>
+    <script type="text/javascript" src="http://www.physicsformulae.com/2dgraphicsjs/application.js"></script>
+
+    <script type="text/javascript" src="app.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i&display=swap&subset=greek,greek-ext,latin-ext" rel="stylesheet">
+
+    <link href="../style.css" type="text/css" rel="stylesheet" />
+
+    <script>
+
+        function bodyOnLoad() {
+            fetch("app.js").then(response => {
+                response.text().then(data => {
+                    document.getElementById("exampleCode").innerText = data.trim();
+                    hljs.highlightBlock(document.getElementById("exampleCodeBlock"));
+                });
+            });
+        }
+
+    </script>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+
+</head>
+
+<body onload="bodyOnLoad()">
+    <div class="centrecolumn">
+        <h1>Single Pendulum</h1>
+        <p class="abstract">
+            This simulation considers a single pendulum moving under gravity. While the motion of a pendulum can be modelled using a sine function for small angles, the motion can be modelled by considering the forces acting on the pendulum for large angles.
+        </p>
+        <p>Refresh the page to restart the simulation.</p>
+        <p><a href="../index.html" title="Back to list of simulations">&larr; Back to list of simulations</a></p>
+    </div>
+    <canvas id="appCanvas" width="1000" height="1000"></canvas>
+    <div class="centrecolumn">
+        <h2>The Code</h2>
+        <pre id="exampleCodeBlock">
+        <code id="exampleCode" class="js">
+        </code>
+        </pre>
+    </div>
+</body>
+
+</html>
