@@ -46,7 +46,7 @@ class Pendulum {
 
     update(time, timeDelta) {
         /* All of the updates to the pendulum's kinematic variables are done here. 
-        It's possible to simulate a pendulum oscillating at small angles by just varying theta sinusoidally with time.
+        It's possible to simulate a pendulum oscillating by just varying theta sinusoidally with time.
         However, it's more interesting to consider the forces acting on the pendulum, and derive the changes to the kinematic variables from those.*/
 
         var forcePerpendicular = this.weight.m * sin(Math.abs(this.theta));
