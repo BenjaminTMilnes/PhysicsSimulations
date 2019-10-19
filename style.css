@@ -1,6 +1,6 @@
 body {
     margin: 0px;
-    padding: 0px;
+    padding: 50px 0px 500px 0px;
     font-family: 'Open Sans', sans-serif;
     font-weight: lighter;
     color: #202020;
@@ -19,61 +19,63 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 h1 {
-    margin: 70px 0px 20px 0px;
-    text-align: center;
+    margin: 0.5em 0em;
     font-size: 50px;
-}
-
-p.abstract {
     text-align: center;
-    margin: 20px 0px 50px 0px;
 }
 
 h2 {
-    font-size: 30px;
     margin: 1.2em 0em;
+    font-size: 30px;
+    text-align: center;
 }
 
 p {
     font-size: 14px;
     color: #707070;
-    margin: 1.5em 0em;
+    margin: 1.5em auto;
+    text-align: center;
+    max-width: 700px;
 }
 
-.simulationlist{
-       display:flex;
-         flex-direction: row;
-            flex-wrap: wrap;
-                 margin: 70px 0px;
+a {
+    color: hsla(210, 80%, 40%);
+    text-decoration: none;
 }
 
-.simulation{
-       flex-basis: 25%;
-
-            border: 1px solid rgba(0, 0, 0, 0.1);
-
-                        border-radius: 2px;
-                                box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.05);
-                                         padding: 30px;
-            }
-
-.simulation img{
-      max-width: 300px;
-
+a:hover {
+    text-decoration: underline;
 }
 
-.simulation h3{
+.simulationlist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 70px 0px;
+}
+
+.simulation {
+    flex-basis: 25%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+}
+
+.simulation img {
+    max-width: 300px;
+}
+
+.simulation h3 {
     font-size: 20px;
-      text-align: center;
+    text-align: center;
     margin: 1.5em 0em;
-      font-weight: normal;
-
+    font-weight: normal;
 }
 
-.simulation p{
+.simulation p {
     font-size: 12px;
     color: #707070;
     margin: 1.5em 0em;
     text-align: center;
-
 }
